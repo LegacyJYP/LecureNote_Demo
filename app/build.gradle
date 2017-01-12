@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.protobuf'
+
+protobuf {
+    // Configure the protoc executable
+    protoc {
+        artifact = 'com.google.protobuf:protoc:3.0.0-beta-3'
+    }
+    plugins {
+        grpc {
+            artifact = 'io.grpc:protoc-gen-grpc-java:0.15.0'
+        }
+    }
+    generateProtoTasks {
+        all().each {
+            task ->
+                task.builtins {
+                    // Javanano is installed by default, but needs to be removed to use java
+                    remove javanano
+                    java {
+                        // Options added to --java_out
+                    }
+                }
+
+                task.plugins {
+                    grpc {
+                        // Options added to --grpc_out
+                    }
+                }
+        }
+    }
+}
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "24.0.3"
+    defaultConfig {
+        applicationId "ku.oaz.jyp.lecurenote_demo"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled = true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+
+def grpcVersion = '0.15.0'
+
+/*
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    testCompile 'junit:junit:4.12'
+
+    compile ('com.google.auth:google-auth-library-oauth2-http:0.4.0') {
+        exclude module: 'httpclient' //by artifact name
+        exclude group: 'com.google.guava', module: 'guava-jdk5'
+        exclude group: 'com.google.guava', module: 'slice-guava-jdk5'
+    }
+    compile ('com.google.api.grpc:grpc-google-cloud-speech-v1beta1:0.0.7'){
+        exclude group: 'com.google.guava', module: 'guava-jdk5'
+    }
+
+    compile group: 'commons-cli', name:'commons-cli', version:'1.3.1'
+    compile 'com.google.android.gms:play-services:10.0.1'
+
+    compile "io.grpc:grpc-okhttp:${grpcVersion}"
+    compile "io.grpc:grpc-protobuf:${grpcVersion}"
+    compile "io.grpc:grpc-stub:${grpcVersion}"
+    compile "io.grpc:grpc-auth:${grpcVersion}"
+
+    compile 'javax.annotation:javax.annotation-api:1.2'
+    compile 'com.android.support:multidex:1.0.1'
+}
+*/
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    //androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+    //    exclude group: 'com.android.support', module: 'support-annotations'
+    //})
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    testCompile 'junit:junit:4.12'
+
+    compile 'com.google.android.gms:play-services:10.0.1'
+    compile 'javax.annotation:javax.annotation-api:1.2'
+    compile "io.grpc:grpc-okhttp:${grpcVersion}"
+    compile "io.grpc:grpc-protobuf:${grpcVersion}"
+    compile "io.grpc:grpc-stub:${grpcVersion}"
+    compile "io.grpc:grpc-auth:${grpcVersion}"
+    compile 'com.google.auth:google-auth-library-oauth2-http:0.3.0'
+    compile 'com.android.support:multidex:1.0.1'
+}

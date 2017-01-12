@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/activity_main"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:paddingBottom="@dimen/activity_vertical_margin"
+android:paddingLeft="@dimen/activity_horizontal_margin"
+android:paddingRight="@dimen/activity_horizontal_margin"
+android:paddingTop="@dimen/activity_vertical_margin"
+tools:context="ku.oaz.jyp.lecurenote_demo.MainActivity">
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="RECORD"
+    android:id="@+id/m_record"
+    android:layout_alignParentTop="true"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="false" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="STOP"
+    android:id="@+id/m_stop"
+    android:layout_below="@+id/m_record"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Play"
+    android:id="@+id/m_play"
+    android:layout_below="@+id/m_stop"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+<Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Reset"
+        android:id="@+id/m_reset"
+        android:layout_below="@+id/m_play"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+<Button
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Exit"
+    android:id="@+id/m_exit"
+    android:layout_below="@+id/m_reset"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="인식결과"
+    android:id="@+id/m_resultText"
+    android:layout_below="@+id/m_exit"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:textAppearance="?android:attr/textAppearanceLarge"
+    android:text="준비"
+    android:id="@+id/m_resultTime"
+    android:layout_below="@+id/m_resultText"
+    android:layout_alignParentLeft="true"
+    android:layout_alignParentStart="true" />
+</RelativeLayout>
+
+
