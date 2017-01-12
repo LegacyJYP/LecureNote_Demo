@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         initView();
+        //Git test
 
         recorder.setFilename(filename);
         player.setFilename(filename);
